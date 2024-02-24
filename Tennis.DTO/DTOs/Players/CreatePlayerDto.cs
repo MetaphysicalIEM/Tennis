@@ -1,19 +1,18 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Reflection;
-using Tennis.DTO.DTOs.PlayerData;
+using Tennis.DTO.DTOs.PlayersData;
 using Tennis.DTO.Helper;
 
-namespace Tennis.DTO.DTOs.Player;
-public record UpdatePlayerDto
+namespace Tennis.DTO.DTOs.Players;
+public record class CreatePlayerDto
 {
     [Required]
-    public string Firstname { get; set; }
+    public string FirstName { get; set; }
 
     [Required]
-    public string Lastname { get; set; }
+    public string LastName { get; set; }
 
     [Required]
-    public string Shortname { get; set; }
+    public string ShortName { get; set; }
 
     [Required]
     public Gender Sex { get; set; }
@@ -25,3 +24,4 @@ public record UpdatePlayerDto
     [Required]
     public PlayerDataDto Data { get; set; }
 }
+

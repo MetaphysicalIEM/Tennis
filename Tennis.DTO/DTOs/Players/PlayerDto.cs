@@ -1,25 +1,24 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Tennis.DTO.DTOs.Country;
-using Tennis.DTO.DTOs.PlayerData;
-using Tennis.DTO.Helper;
+using Tennis.DTO.DTOs.PlayersData;
 
-namespace Tennis.DTO.DTOs.Player;
+namespace Tennis.DTO.DTOs.Players;
 public record PlayerDto
 {
     [Required]
     public int Id { get; set; }
 
     [Required]
-    public string Firstname { get; set; }
+    public string FirstName { get; set; }
 
     [Required]
-    public string Lastname { get; set; }
+    public string LastName { get; set; }
 
     [Required]
-    public string Shortname { get; set; }
+    public string ShortName { get; set; }
 
     [Required]
-    public Gender Sex { get; set; }
+    [MaxLength(1)]
+    public string Sex { get; set; }
 
     [Required]
     [MaxLength(3)]

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Tennis.DTO.DTOs.PlayerData;
+namespace Tennis.DTO.DTOs.PlayersData;
 public record PlayerDataDto
 {
     [Required]

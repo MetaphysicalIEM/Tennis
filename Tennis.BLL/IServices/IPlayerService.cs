@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tennis.DTO.DTOs.Player;
+﻿using Tennis.DTO.DTOs.Players;
+using Tennis.DTO.DTOs.PlayersData;
 
 namespace Tennis.BLL.IServices;
 public interface IPlayerService
@@ -14,4 +9,5 @@ public interface IPlayerService
     Task<PlayerDto> GetPlayerAsync(int id);
     Task<IEnumerable<PlayerDto>> GetPlayersAsync();
     Task DeletePlayerAsync(int id);
+    Task<PlayersDataStatisticsDto> GetPlayersDataStatisticsAsync();
 }

@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Tennis.DAL\Tennis.DAL.csproj" />
     <ProjectReference Include="..\Tennis.DTO\Tennis.DTO.csproj" />
   </ItemGroup>
 

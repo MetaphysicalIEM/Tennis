@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Tennis.DAL.Entities
+﻿namespace Tennis.DAL.Entities
 {
     public class PlayerEntity
     {
@@ -12,8 +6,7 @@ namespace Tennis.DAL.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string ShortName { get; set; }
-        public string Gender { get; set; }
-        public string Picture { get; set; }
+        public int Sex { get; set; }
         public string CountryCode { get; set; }
 
         // Data
@@ -22,5 +15,7 @@ namespace Tennis.DAL.Entities
         public int Weight { get; set; }
         public int Height { get; set; }
         public int Age { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime LastUpdatedDate { get; set; }
     }
 }
