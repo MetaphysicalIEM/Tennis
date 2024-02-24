@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using Tennis.BLL.IServices;
 using Tennis.DAL.DataContext;
 using Tennis.DAL.Entities;
@@ -51,7 +52,6 @@ public class PlayerService(TennisDbContext context) : IPlayerService
         };
     }
 
-
     public async Task<IEnumerable<PlayerDto>> GetPlayersAsync()
     {
         return await _context.Players
@@ -78,17 +78,33 @@ public class PlayerService(TennisDbContext context) : IPlayerService
             .ToListAsync();
     }
 
-    public Task<PlayersDataStatisticsDto> GetPlayersDataStatisticsAsync()
+    public async Task<PlayersDataStatisticsDto> GetPlayersDataStatisticsAsync()
     {
-        throw new NotImplementedException();
+        PlayerEntity[] players = await _context.Players.OrderBy(p => p.Height).ToArrayAsync();
+        double averageBMI = await _context.Players.AverageAsync(p => p.Weight / Math.Pow(p.Height / 100, 2));
+        int medianPlayerHeight = 0;
+        int count = players.Length;
+        int middleIndex = count / 2;
+        string countryWithHighestWinRatio = "USA";
+
+        if (count % 2 != 0)
+        {
+            medianPlayerHeight = players[middleIndex].Weight;
+        }
+        else
+        {
+            medianPlayerHeight = (players[middleIndex - 1].Weight + players[middleIndex].Weight) / 2;
+        }
+
+        return new PlayersDataStatisticsDto
+        {
+            CountryWithHighestWinRatio = countryWithHighestWinRatio,
+            AverageBMI = averageBMI,
+            MedianPlayerHeight = medianPlayerHeight
+        };
     }
 
     public async Task<PlayerDto> UpdatePlayerAsync(UpdatePlayerDto updatePlayerDto)
-    {
-        throw new NotImplementedException();
-    }
-
-    public async Task<string> GetCountryWithHighestWinRatioAsync()
     {
         throw new NotImplementedException();
     }

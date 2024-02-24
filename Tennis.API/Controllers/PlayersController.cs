@@ -14,7 +14,8 @@ public class PlayersController(IPlayerService playerService) : ControllerBase
     [HttpGet("statistics")]
     public async Task<ActionResult<PlayersDataStatisticsDto>> GetPlayersDataStatisticsAsync()
     {
-        return Ok("");
+        PlayersDataStatisticsDto playersDataStatisticsDto = await _playerService.GetPlayersDataStatisticsAsync();
+        return Ok(playersDataStatisticsDto);
     }
 
     [HttpGet]
