@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
 using Tennis.BLL.IServices;
 using Tennis.DAL.DataContext;
 using Tennis.DAL.Entities;

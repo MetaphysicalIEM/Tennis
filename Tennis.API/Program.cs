@@ -11,8 +11,6 @@ ConfigurationManager Configuration = builder.Configuration;
 builder.Services.AddDbContext<TennisDbContext>(options =>
         options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
-// Add services to the container.
-
 builder.Services.AddControllers();
 builder.Services.AddRouting(options =>
 {
@@ -23,7 +21,6 @@ builder.Services.AddRouting(options =>
 builder.Services.AddHealthChecks();
 builder.Services.AddScoped<IPlayerService, PlayerService>();
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -36,8 +33,6 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 WebApplication app = builder.Build();
-
-// Configure the HTTP request pipeline.
 
 app.UseSwagger();
 app.UseSwaggerUI();

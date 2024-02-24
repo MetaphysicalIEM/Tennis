@@ -8,7 +8,6 @@ namespace Tennis.API.Controllers;
 [ApiController]
 public class PlayersController(IPlayerService playerService) : ControllerBase
 {
-
     private readonly IPlayerService _playerService = playerService;
 
     [HttpGet("statistics")]
@@ -38,8 +37,6 @@ public class PlayersController(IPlayerService playerService) : ControllerBase
             return BadRequest("User not found");
         }
     }
-
-
 
     [HttpPost]
     public async Task<ActionResult<PlayerDto>> CreatePlayerAsync([FromBody] CreatePlayerDto createPlayerDto)
