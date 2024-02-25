@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Tennis.DTO.DTOs.Country;
 using Tennis.DTO.DTOs.PlayersData;
 
 namespace Tennis.DTO.DTOs.Players;
@@ -21,8 +22,7 @@ public record PlayerDto
     public string Sex { get; set; }
 
     [Required]
-    [MaxLength(3)]
-    public string CountryCode { get; set; }
+    public CountryDto Country { get; set; }
 
     [Required]
     public string Picture { get; set; }

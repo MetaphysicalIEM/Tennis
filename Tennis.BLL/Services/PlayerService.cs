@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Numerics;
 using Tennis.BLL.IServices;
 using Tennis.DAL.DataContext;
 using Tennis.DAL.Entities;
+using Tennis.DTO.DTOs.Country;
 using Tennis.DTO.DTOs.Players;
 using Tennis.DTO.DTOs.PlayersData;
 using Tennis.DTO.Helper;
@@ -48,7 +50,11 @@ public class PlayerService(TennisDbContext context) : IPlayerService
             LastName = player.LastName,
             ShortName = player.ShortName,
             Sex = GetGender(ConvertGenderIntoEnum(player.Sex)),
-            CountryCode = player.CountryCode,
+            Country = new CountryDto
+            {
+                Picture = $"https://flagsapi.com/{player.CountryCode}/flat/64.png",
+                Code = player.CountryCode,
+            },
             Data = new PlayerDataDto
             {
                 Rank = player.Rank,
@@ -97,7 +103,11 @@ public class PlayerService(TennisDbContext context) : IPlayerService
             LastName = player.LastName,
             ShortName = player.ShortName,
             Sex = GetGender(ConvertGenderIntoEnum(player.Sex)),
-            CountryCode = player.CountryCode,
+            Country = new CountryDto
+            {
+                Picture = $"https://flagsapi.com/{player.CountryCode}/flat/64.png",
+                Code = player.CountryCode,
+            },
             Data = new PlayerDataDto
             {
                 Rank = player.Rank,
@@ -141,7 +151,11 @@ public class PlayerService(TennisDbContext context) : IPlayerService
             LastName = player.LastName,
             ShortName = player.ShortName,
             Sex = GetGender(ConvertGenderIntoEnum(player.Sex)),
-            CountryCode = player.CountryCode,
+            Country = new CountryDto
+            {
+                Picture = $"https://flagsapi.com/{player.CountryCode}/ flat/64.png",
+                Code = player.CountryCode,
+            },
             Picture = "none",
             Data = new PlayerDataDto
             {
@@ -166,7 +180,11 @@ public class PlayerService(TennisDbContext context) : IPlayerService
                 LastName = x.LastName,
                 ShortName = x.ShortName,
                 Sex = GetGender(ConvertGenderIntoEnum(x.Sex)),
-                CountryCode = x.CountryCode,
+                Country = new CountryDto
+                {
+                    Picture = $"https://flagsapi.com/{x.CountryCode}/flat/64.png",
+                    Code = x.CountryCode,
+                },
                 Picture = "none",
                 Data = new PlayerDataDto
                 {
