@@ -21,5 +21,10 @@ Run the project Tennis API
 ## Not completed
 
 Player Service
-Migration
 Database structure
+
+## Migrations
+
+dotnet ef migrations add {Migration_Name} --context TennisDbContext --project Tennis.DAL --startup-project Tennis.API --output-dir {Migrations_Folder}
+dotnet ef database update --project Tennis.DAL --startup-project Tennis.API
+dotnet ef migrations remove --context TennisDbContext --project Tennis.DAL --startup-project Tennis.API

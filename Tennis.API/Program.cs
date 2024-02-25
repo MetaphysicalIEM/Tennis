@@ -8,6 +8,8 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 ConfigurationManager Configuration = builder.Configuration;
 
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
 builder.Services.AddDbContext<TennisDbContext>(options =>
         options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -16,7 +18,6 @@ builder.Services.AddRouting(options =>
 {
     options.LowercaseUrls = true;
 });
-
 
 builder.Services.AddHealthChecks();
 builder.Services.AddScoped<IPlayerService, PlayerService>();

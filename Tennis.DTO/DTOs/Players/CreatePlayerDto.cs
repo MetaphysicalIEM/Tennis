@@ -23,5 +23,10 @@ public record class CreatePlayerDto
 
     [Required]
     public PlayerDataDto Data { get; set; }
-}
 
+    [Required]
+    public int VictoryNumber { get; set; }
+
+    [Required]
+    public int DefeatNumber { get; set; }
+}

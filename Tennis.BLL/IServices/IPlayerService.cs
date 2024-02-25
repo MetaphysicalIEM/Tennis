@@ -5,7 +5,7 @@ namespace Tennis.BLL.IServices;
 public interface IPlayerService
 {
     Task<PlayerDto> CreatePlayerAsync(CreatePlayerDto createPlayerDto);
-    Task<PlayerDto> UpdatePlayerAsync(UpdatePlayerDto updatePlayerDto);
+    Task<PlayerDto> UpdatePlayerAsync(int id, UpdatePlayerDto updatePlayerDto);
     Task<PlayerDto> GetPlayerAsync(int id);
     Task<IEnumerable<PlayerDto>> GetPlayersAsync();
     Task DeletePlayerAsync(int id);

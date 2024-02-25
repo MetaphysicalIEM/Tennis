@@ -12,6 +12,8 @@ public class PlayerEntity
     public int Weight { get; set; }
     public int Height { get; set; }
     public int Age { get; set; }
+    public int VictoryNumber { get; set; }
+    public int DefeatNumber { get; set; }
     public DateTime CreatedDate { get; set; }
     public DateTime LastUpdatedDate { get; set; }
 }

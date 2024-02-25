@@ -36,23 +36,52 @@ public class PlayersController(IPlayerService playerService) : ControllerBase
         {
             return BadRequest("User not found");
         }
+        catch
+        {
+            throw;
+        }
     }
 
     [HttpPost]
     public async Task<ActionResult<PlayerDto>> CreatePlayerAsync([FromBody] CreatePlayerDto createPlayerDto)
     {
-        return Unauthorized();
+        PlayerDto playerDto = await _playerService.CreatePlayerAsync(createPlayerDto);
+        return Ok(playerDto);
     }
 
     [HttpPut("{id}")]
     public async Task<ActionResult<PlayerDto>> UpdatePlayerAsync(int id, [FromBody] UpdatePlayerDto updatePlayerDto)
     {
-        return Unauthorized();
+        try
+        {
+            PlayerDto updatedPlayer = await _playerService.UpdatePlayerAsync(id, updatePlayerDto);
+            return Ok(updatedPlayer);
+        }
+        catch (ArgumentNullException)
+        {
+            return BadRequest($"Failed to update player");
+        }
+        catch
+        {
+            throw;
+        }
     }
 
     [HttpDelete("{id}")]
     public async Task<ActionResult<PlayerDto>> DeletePlayerAsync(int id)
     {
-        return Unauthorized();
+        try
+        {
+            await _playerService.DeletePlayerAsync(id);
+            return Ok();
+        }
+        catch (ArgumentNullException)
+        {
+            return BadRequest($"Failed to delete player");
+        }
+        catch
+        {
+            throw;
+        }
     }
 }
