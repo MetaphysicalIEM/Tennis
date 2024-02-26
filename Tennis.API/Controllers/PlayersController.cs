@@ -34,11 +34,7 @@ public class PlayersController(IPlayerService playerService) : ControllerBase
         }
         catch (ArgumentNullException)
         {
-            return BadRequest("User not found");
-        }
-        catch
-        {
-            throw;
+            return NotFound("User not found");
         }
     }
 
@@ -59,11 +55,7 @@ public class PlayersController(IPlayerService playerService) : ControllerBase
         }
         catch (ArgumentNullException)
         {
-            return BadRequest($"Failed to update player");
-        }
-        catch
-        {
-            throw;
+            return NotFound($"Failed to update player");
         }
     }
 
@@ -77,11 +69,7 @@ public class PlayersController(IPlayerService playerService) : ControllerBase
         }
         catch (ArgumentNullException)
         {
-            return BadRequest($"Failed to delete player");
-        }
-        catch
-        {
-            throw;
+            return NotFound($"Failed to delete player");
         }
     }
 }
